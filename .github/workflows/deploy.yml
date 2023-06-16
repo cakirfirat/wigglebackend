@@ -25,4 +25,4 @@ jobs:
           docker rm wigglebackend-container
           docker rmi wigglebackend -f # Eski imajı sil
           docker build -t wigglebackend . --rm # Yeni imajı oluştur ve intermediate containerları sil
-          docker run -d -p 8043:8043 --name wigglebackend-container wigglebackend
+          docker run -d -p 8096:8096 --name wigglebackend-container wigglebackend
