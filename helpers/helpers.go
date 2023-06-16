@@ -168,6 +168,7 @@ func Localizate(lang, text string) string {
 	bundle.RegisterUnmarshalFunc("json", json.Unmarshal)
 
 	langPath := filepath.Join(cwd, "../helpers", "lang")
+	fmt.Println(langPath)
 
 	switch lang {
 	case "tr-tr":
