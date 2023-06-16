@@ -22,7 +22,7 @@ func main() {
 	r.Handle("/api/v1/register", ValidateJwt(RegisterHandler)).Methods("POST")
 	r.HandleFunc("/api/v1/login", LoginHandler).Methods("POST")
 	r.HandleFunc("/api/v1/forgot-password", ForgotPasswordHandler).Methods("POST")
-	//new deneme portainer
+	//new deneme portainer son düzenleme
 
 	/* PARTNER ROUTES */
 	r.Handle("/api/v1/add-partner", ValidateJwt(AddPartnerHandler)).Methods("POST")
