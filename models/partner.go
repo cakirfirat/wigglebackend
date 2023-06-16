@@ -42,3 +42,8 @@ func InsertPartner(partner Partner) (Partner, bool) {
 		return Partner{}, false
 	}
 }
+
+func UpdatePartner(partner Partner) bool {
+	//test func
+	return true
+}
