@@ -16,7 +16,7 @@ func main() {
 
 	r := mux.NewRouter()
 
-	/* AUTH ROUTES */
+	/* AUTH ROUTES FOR GIHUB */
 	r.HandleFunc("/api/v1/genesis", GenesisHandler).Methods("POST")
 	r.HandleFunc("/api/v1/verify-code", VerifyCodeHandler).Methods("POST")
 	r.Handle("/api/v1/register", ValidateJwt(RegisterHandler)).Methods("POST")
