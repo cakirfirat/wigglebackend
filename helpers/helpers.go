@@ -12,6 +12,8 @@ import (
 	"math/rand"
 	"mime/multipart"
 	"net/http"
+	"os"
+	"path/filepath"
 	"strconv"
 	"strings"
 	"time"
@@ -157,17 +159,23 @@ func CreateOtp() string {
 }
 
 func Localizate(lang, text string) string {
+	// Get the current working directory
+	cwd, err := os.Getwd()
+
+	CheckError(err)
 
 	bundle := i18n.NewBundle(language.English)
 	bundle.RegisterUnmarshalFunc("json", json.Unmarshal)
 
+	langPath := filepath.Join(cwd, "../helpers", "lang")
+
 	switch lang {
 	case "tr-tr":
-		bundle.LoadMessageFile("../helpers/lang/tr-TR.json")
+		bundle.LoadMessageFile(filepath.Join(langPath, "tr-TR.json"))
 	case "en-en":
-		bundle.LoadMessageFile("../helpers/lang/en-EN.json")
+		bundle.LoadMessageFile(filepath.Join(langPath, "en-EN.json"))
 	default:
-		bundle.LoadMessageFile("../helpers/lang/en-EN.json")
+		bundle.LoadMessageFile(filepath.Join(langPath, "en-EN.json"))
 	}
 
 	localizer := i18n.NewLocalizer(bundle, lang)
