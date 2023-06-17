@@ -25,6 +25,7 @@ func GenesisHandler(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusBadRequest)
 		w.Write([]byte(Localizate(locale, "Genesis error 0001")))
+		//hello word
 		return
 	}
 	if CheckPhoneNumber(phoneNumber) {
